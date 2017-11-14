@@ -1,4 +1,4 @@
-package du.wit.dscn.comp2000.listapp;
+package du.wit.dcsn.comp2000.listapp;
 
 public class GameTester {
 	public static void main(String[] args) {
