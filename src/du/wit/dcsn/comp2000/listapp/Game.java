@@ -17,7 +17,7 @@ public class Game{
 	private static ArrayList<Player> players =new ArrayList<Player>();
 	private static boolean direction;
 	private static DrawDeck drawDeck;
-	private static DiscardDeck discardDeck;
+	private static DiscardPile discardDeck;
 	private static int currentPlayerIndex=0;
 	private static int currentNumber;
 	private static String currentColor;

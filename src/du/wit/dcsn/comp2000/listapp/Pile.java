@@ -22,9 +22,6 @@ public abstract class Pile {
 
 	}
 
-	public ArrayList<Card> getCards() {
-		return cards;
-	}
 
 	public void addCard(Card card) {
 		cards.add(card);
@@ -42,5 +39,10 @@ public abstract class Pile {
 		return cards.toString();
 	}
 
+	public int getCardCount()
+	{
+		return cards.size();
+	}
+	
 	public abstract Card getCard();
 }

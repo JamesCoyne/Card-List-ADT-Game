@@ -7,8 +7,44 @@ package du.wit.dcsn.comp2000.listapp;
 
 public class Player {
 
-	Player(){
-		
+	private Hand hand;
+	public final String name;
+	public final String unoMessage;
+	public final String winMessage;
+	
+	Player(Hand h, String n){
+		hand = h;
+		name = n;
+		unoMessage = "Uno!";
+		winMessage = "I'm good enough to win at uno, but not good enough to have a custom win message";
+	}
+	
+	Player(Hand h, String n, String um, String wm){
+		hand = h;
+		name = n;
+		unoMessage = um;
+		winMessage = wm;
+	}
+	
+	
+	public boolean drawCard(DrawDeck drawDeck){
+		if(drawDeck.isEmpty()) return false;
+		hand.addCard(drawDeck.getCard());
+		return true;
+	}
+	
+	
+	
+	public boolean playCard(DiscardPile discardPile){
+		return false;
+	}
+	
+	public boolean hasValidMove(){
+		return false;
+	}
+	
+	public int getCardCount(){
+		return hand.getCardCount();
 	}
 	
 }
