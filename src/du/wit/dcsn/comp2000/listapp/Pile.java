@@ -12,14 +12,35 @@ Other methods may be added later if you determine that you need them.
 Thoroughly test your Pile class methods before you proceed (will save you time and frustration later).
  */
 
-public class Pile {
+import java.util.ArrayList;
 
-	Pile(){
-		
+public abstract class Pile {
+
+	protected ArrayList<Card> cards;
+
+	public Pile() {
+
 	}
-	
-	public String toString(){
-		return "";
+
+	public ArrayList<Card> getCards() {
+		return cards;
 	}
-	
+
+	public void addCard(Card card) {
+		cards.add(card);
+	}
+
+	public Card[] toArray() {
+		return cards.toArray(new Card[cards.size()]);
+	}
+
+	public boolean isEmpty() {
+		return cards.isEmpty();
+	}
+
+	public String toString() {
+		return cards.toString();
+	}
+
+	public abstract Card getCard();
 }
