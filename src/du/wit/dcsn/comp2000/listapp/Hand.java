@@ -9,14 +9,29 @@ package du.wit.dcsn.comp2000.listapp;
  *Thoroughly test your Deck and Hand classes before you proceed!
 */
 
-public class Hand extends Pile{
+public class Hand extends Pile {
 
-	Hand(){
-		
+	Hand() {
+
 	}
-	
-	public String toString(){
+
+	public enum SORTING_TYPE {
+		COLOR, VALUE
+	}
+
+	public String toString() {
 		return "";
 	}
-	
+
+	public Card getCard() {
+		throw new UnsupportedOperationException("Hand does not support getCard()");
+	}
+
+	public Card getCard(int index) {
+		return cards.remove(index);
+	}
+
+	public void sort(SORTING_TYPE type) {
+
+	}
 }

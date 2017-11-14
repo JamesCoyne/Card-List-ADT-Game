@@ -1,5 +1,7 @@
 package du.wit.dcsn.comp2000.listapp;
 
+import java.util.ArrayList;
+
 /*
  * extend classes Deck and Hand from Pile. Add instance variables and behaviors (methods) specific to each. 
  * For example, Deck would have a deal() method. As usual, provide constructors,
@@ -9,13 +11,21 @@ package du.wit.dcsn.comp2000.listapp;
  *Thoroughly test your Deck and Hand classes before you proceed!
 */
 
-public class Deck extends Pile{
+public abstract class Deck extends Pile {
 
-	Deck(){
-		
+	Deck() {
+
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		return "";
+	}
+
+	public void shuffle() {
+
+	}
+
+	public void deal(ArrayList<Player> players) {
+
 	}
 }
