@@ -19,8 +19,7 @@ public class Game{
 	private static DrawDeck drawDeck;
 	private static DiscardPile discardDeck;
 	private static int currentPlayerIndex=0;
-	private static int currentNumber;
-	private static String currentColor;
+
 	public static void main(String[] args) {
 		
 	}
@@ -29,6 +28,42 @@ public class Game{
 	 */
 	public static void playRound() {
 		Player currentPlayer=players.get(currentPlayerIndex);
+	}
+	/**
+	 * Initialized the DrawDeck instance
+	 */
+	public static void initDeck(){
+
+		//init cards for each color 1 - 13
+		for(int color = 1; color < 3; color++){
+			for(int face = 1; face < 13; face++){
+				drawDeck.addCard(new Card(color, face));
+			}
+		}
+
+		//init cards for each color 0 - 13
+		for(int color = 1; color < 3; color++){
+			for(int face = 0; face < 13; face++){
+				drawDeck.addCard(new Card(color, face));
+			}
+		}
+		//init 4 cards wild and wild draw 4
+		for(int i = 0; i < 4; i++){
+			drawDeck.addCard(new Card(0, 14));
+			drawDeck.addCard(new Card(0, 15));
+		}
+	}
+	/**
+	 * Initializes the list of Players, prompting for a name
+	 */
+	public static void initPlayers(){
+
+	}
+	/**
+	 * Takes all of the objects 
+	 */
+	public static void discardDeckToDrawDeck(){
+
 	}
 	/**
 	 * Plays a single hand of the current player
@@ -48,7 +83,7 @@ public class Game{
 		}
 	}
 	/**
-	 * Checks to see if the player needs to draw from the deck, or if any of the cards are special. 
+	 * Checks to see if any Cards played are special. 
 	 */
 	public static void checkCard() {
 		
@@ -70,13 +105,14 @@ public class Game{
 	 * causes the next player to draw 2 cards and skip their turn
 	 */
 	public static void draw2() {
-		
+		//if player.drawCard() == false, then reinitialize discardPile into drawDeck, and do player.drawCard() again
 	}
 	/**
 	 * Causes the next player to draw 4 cards and skip their turn
 	 */
 	public static void draw4() {
-		
+		draw2();
+		draw2();	
 	}
 	/**
 	 * Prompts the player to pick a color for the "Wild card" case.
