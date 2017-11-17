@@ -19,9 +19,8 @@ public abstract class Pile {
 	protected ArrayList<Card> cards;
 
 	public Pile() {
-
+		cards = new ArrayList<Card>();
 	}
-
 
 	public void addCard(Card card) {
 		cards.add(card);
@@ -39,10 +38,9 @@ public abstract class Pile {
 		return cards.toString();
 	}
 
-	public int getCardCount()
-	{
+	public int getCardCount() {
 		return cards.size();
 	}
-	
+
 	public abstract Card getCard();
 }

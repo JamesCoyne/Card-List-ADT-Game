@@ -7,11 +7,27 @@ import java.util.ArrayList;
  * 
  * @author Kevin Humphreys
  */
+
 public class DrawDeck extends Deck {
 
 	public DrawDeck() {
-		System.err.println("Load from the config!");
-		assert false;
+		super();
+		for (Card.Color color : Card.Color.values()) {
+			if (color != Card.Color.Wild) {
+				for (Card.Face faceVal : Card.Face.values()) {
+					if (Card.Face.isNumber(faceVal) && faceVal != Card.Face.Zero) {
+						if (!Card.Face.isWild(faceVal)) {
+							addCard(new Card(color, faceVal));
+						} else {
+							addCard(new Card(Card.Color.Wild, faceVal));
+						}
+					}
+					if (!Card.Face.isWild(faceVal)) {
+						addCard(new Card(color, faceVal));
+					}
+				}
+			}
+		}
 	}
 
 	public DrawDeck(DiscardPile deck) {
@@ -50,7 +66,12 @@ public class DrawDeck extends Deck {
 		//deck = new DrawDeck(
 	}
 
-	public static void main(String[] args) {
+	public String toString() {
+		return cards.toString();
+	}
 
+	public static void main(String[] args) {
+		DrawDeck d = new DrawDeck();
+		System.out.println(d);
 	}
 }
