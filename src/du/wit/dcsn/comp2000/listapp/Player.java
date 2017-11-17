@@ -35,12 +35,22 @@ public class Player {
 	
 	
 	
-	public boolean playCard(DiscardPile discardPile){
+	public boolean playCard(DiscardPile discardPile, int cardIndex){
+		if(true) { //check if card is vaild here, currently no method for comparing top card with card played
+			discardPile.addCard(hand.getCard(cardIndex));
+			return true;
+		}
 		return false;
 	}
 	
 	public boolean hasValidMove(){
-		return false;
+		for(int i = 0; i < hand.toArray().length; i++){
+			Card currentCard = hand.toArray()[i];
+			if(!true){ //check if card is invaild here, currently no method for comparing top card with card played
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public int getCardCount(){

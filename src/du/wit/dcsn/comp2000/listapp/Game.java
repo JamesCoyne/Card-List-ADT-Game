@@ -1,4 +1,4 @@
-package du.wit.dscn.comp2000.listapp;
+package du.wit.dcsn.comp2000.listapp;
 import java.util.*;
 /*
  * Determine a multiple‐player card game that you’d like to implement that is complex enough to require:
