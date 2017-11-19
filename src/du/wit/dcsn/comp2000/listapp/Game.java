@@ -45,8 +45,9 @@ public class Game{
 	private static Player winner;
 	public static void main(String[] args) {
 		initDeck();
-		initPlayers(3);
-		dealCards(2);
+		initPlayers(5);
+		dealCards(7);
+		System.out.println("Discard Pile: "+Arrays.toString(discardPile.toArray()));
 		for(int i=0;i<1;i++) {
 			playRound();
 		}
@@ -80,7 +81,7 @@ public class Game{
 	public static void playHand() {
 		Scanner in=new Scanner(System.in);
 		System.out.println(currentPlayer.name+"'s hand: "+displayHand());
-		while(!currentPlayer.hasValidMove()) {
+		while(!currentPlayer.hasValidMove(discardPile)) {
 			System.out.println(currentPlayer.name+" has no valid cards, drawing a card...");
 			currentPlayer.drawCard(drawDeck);
 			if(drawDeck.getCardCount() == 0) {
@@ -140,7 +141,7 @@ public class Game{
 	 */
 	public static void nextPlayer() {
 		if(direction) {
-			if(currentPlayerIndex == players.size()-2) {
+			if(currentPlayerIndex == players.size()-1) {
 				currentPlayerIndex=0;
 			}
 			else {
@@ -188,6 +189,7 @@ public class Game{
 	 */
 	public static void reverse() {
 		System.out.println("Reverse!");
+		direction=!direction;
 	}
 	/**
 	 * skips the next player in the rotation
@@ -201,9 +203,27 @@ public class Game{
 	 */
 	public static void draw2() {
 		System.out.println("Draw2!");
-		nextPlayer();
-		currentPlayer.drawCard(drawDeck);
-		currentPlayer.drawCard(drawDeck);
+		int nextPlayerIndex=currentPlayerIndex;
+		if(direction) {
+			if(nextPlayerIndex == players.size()-1) {
+				nextPlayerIndex=0;
+			}
+			else {
+				nextPlayerIndex++;
+			}
+
+		}
+		else {
+			if(nextPlayerIndex == 1) {
+				nextPlayerIndex=players.size()-1;
+			}
+			else {
+				nextPlayerIndex--;	
+			}
+
+		}
+		players.get(nextPlayerIndex).drawCard(drawDeck);
+		players.get(nextPlayerIndex).drawCard(drawDeck);
 	}
 	/**
 	 * Causes the next player to draw 4 cards and skip their turn

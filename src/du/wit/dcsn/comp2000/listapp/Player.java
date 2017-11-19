@@ -36,7 +36,7 @@ public class Player {
 	
 	
 	public boolean playCard(DiscardPile discardPile, int cardIndex){
-		if(true) { //check if card is vaild here, currently no method for comparing top card with card played
+		if(hand.toArray()[cardIndex].compareTo(discardPile.getCard())) { //check if card is vaild here, currently no method for comparing top card with card played
 			discardPile.addCard(hand.playCard(cardIndex));
 			return true;
 		}
@@ -46,10 +46,10 @@ public class Player {
 	public Hand getHand() {
 		return hand;
 	}
-	public boolean hasValidMove(){
+	public boolean hasValidMove(DiscardPile discardPile){
 		for(int i = 0; i < hand.toArray().length; i++){
 			Card currentCard = hand.toArray()[i];
-			if(!true){ //check if card is invaild here, currently no method for comparing top card with card played
+			if(!currentCard.compareTo(discardPile.getCard())){ //check if card is invaild here, currently no method for comparing top card with card played
 				return false;
 			}
 		}
