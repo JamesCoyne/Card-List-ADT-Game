@@ -45,24 +45,27 @@ public class Game{
 	private static Player winner;
 	public static void main(String[] args) {
 		initDeck();
-		initPlayers(10);
+		initPlayers(3);
 		dealCards(2);
-		playRound();
+		for(int i=0;i<1;i++) {
+			playRound();
+		}
+
 	}
 	/**
 	 * Plays the full round of Uno!
 	 */
 	public static void playRound() {
-		for(Player p : players) {
-			System.out.println(p.name +"'s turn");
+		while(true){
 			currentPlayer=players.get(currentPlayerIndex);
+			System.out.println(currentPlayer.name +"'s turn");
 			playHand();
-			if(p.getCardCount()==0) {
-				winner=p;
+			if(currentPlayer.getCardCount()==0) {
+				winner=currentPlayer;
 				winGame();
 			}
-			if(p.getCardCount()==1) {
-				System.out.println(p.name+": \""+p.unoMessage+"\"");
+			if(currentPlayer.getCardCount()==1) {
+				System.out.println(currentPlayer.name+": \""+currentPlayer.unoMessage+"\"");
 			}
 		}
 	}
@@ -76,7 +79,7 @@ public class Game{
 	 */
 	public static void playHand() {
 		Scanner in=new Scanner(System.in);
-		
+		System.out.println(currentPlayer.name+"'s hand: "+displayHand());
 		while(!currentPlayer.hasValidMove()) {
 			System.out.println(currentPlayer.name+" has no valid cards, drawing a card...");
 			currentPlayer.drawCard(drawDeck);
@@ -88,15 +91,15 @@ public class Game{
 		int choiceIndex=in.nextInt();
 		currentPlayer.playCard(discardPile, choiceIndex-1);
 		checkCard();
-		System.out.println(Arrays.toString(discardPile.toArray()));
+		System.out.println("Discard Pile: "+Arrays.toString(discardPile.toArray()));
 		nextPlayer();
 		
 	}
 	/**
 	 * Display the cards and indices for each card so that the player can choose which card they want
 	 */
-	private static void displayHand() {
-		
+	private static String displayHand() {
+		return Arrays.toString(currentPlayer.getHand().toArray());
 	}
 	/**
 	 * Initialized the DrawDeck instance
@@ -198,6 +201,7 @@ public class Game{
 	 */
 	public static void draw2() {
 		System.out.println("Draw2!");
+		nextPlayer();
 		currentPlayer.drawCard(drawDeck);
 		currentPlayer.drawCard(drawDeck);
 	}

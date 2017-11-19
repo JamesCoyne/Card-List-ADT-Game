@@ -43,6 +43,9 @@ public class Player {
 		return false;
 	}
 	
+	public Hand getHand() {
+		return hand;
+	}
 	public boolean hasValidMove(){
 		for(int i = 0; i < hand.toArray().length; i++){
 			Card currentCard = hand.toArray()[i];
