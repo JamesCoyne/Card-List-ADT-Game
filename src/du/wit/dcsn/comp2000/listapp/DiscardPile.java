@@ -11,4 +11,15 @@ public class DiscardPile extends Pile {
 	public Card getCard() {
 		return cards.get(cards.size() - 1);
 	}
+
+	public String toString() {
+		String returnString = "";
+		for (int i = 0; i < cards.size(); i++) {
+			if (i != 0) {
+				returnString += ", ";
+			}
+			returnString += cards.get(i);
+		}
+		return returnString;
+	}
 }

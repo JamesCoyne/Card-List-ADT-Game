@@ -56,14 +56,35 @@ public class DrawDeck extends Deck {
 		}
 	}
 
-	private void testConstructor() {
+	private static void testDrawDeck()
+	{
+		System.out.println("==== Testing DrawDeck ====");
+		testConstructors();
+		testGetCard();
+	}
+	private static void testConstructors() {
 		System.out.println("---- Testing DrawDeck constructors ----");
 		System.out.println("---- Testing new DrawDeck() ----");
 		DrawDeck deck = new DrawDeck();
 		System.out.println("New DrawDeck created: " + deck);
 
-		System.out.println("---- Testing new DrawDeck(DiscardPile pile ----");
-		//deck = new DrawDeck(
+		System.out.println("---- Testing new DrawDeck(DiscardPile pile) ----");
+
+		DiscardPile discard = new DiscardPile();
+		for (int i = 0; i < 10; i++) {
+			discard.addCard(deck.getCard());
+		}
+		System.out.println("DiscardPile contents: " + discard.toString());
+		deck = new DrawDeck(discard);
+		System.out.println("DrawDeck contents: " + deck);
+	}
+
+	private static void testGetCard() {
+		System.out.println("---- Testing getCard() ----");
+		DrawDeck deck = new DrawDeck();
+		System.out.println("DrawDeck contents: " + deck);
+		System.out.println("Card removed: " + deck.getCard());
+		System.out.println("DrawDeck after getCard(): " + deck);
 	}
 
 	public String toString() {
@@ -71,7 +92,6 @@ public class DrawDeck extends Deck {
 	}
 
 	public static void main(String[] args) {
-		DrawDeck d = new DrawDeck();
-		System.out.println(d);
+		testDrawDeck();
 	}
 }

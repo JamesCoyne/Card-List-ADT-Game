@@ -28,6 +28,10 @@ public class Hand extends Pile {
 	}
 
 	public Card getCard(int index) {
+		return cards.get(index);
+	}
+
+	public Card playCard(int index) {
 		return cards.remove(index);
 	}
 
