@@ -37,7 +37,7 @@ public class Player {
 	
 	public boolean playCard(DiscardPile discardPile, int cardIndex){
 		if(true) { //check if card is vaild here, currently no method for comparing top card with card played
-			discardPile.addCard(hand.getCard(cardIndex));
+			discardPile.addCard(hand.playCard(cardIndex));
 			return true;
 		}
 		return false;
