@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Kevin Humphreys
  */
 
-public class DrawDeck extends Deck {
+public class DrawDeck extends Pile {
 
 	public DrawDeck() {
 		super();

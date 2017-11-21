@@ -1,5 +1,11 @@
 package du.wit.dcsn.comp2000.listapp;
 
+/**
+ * 
+ * @author Ethan Arrowood
+ * Class implementation of Card
+ *
+ */
 public class Card {
 
 	public enum Face {

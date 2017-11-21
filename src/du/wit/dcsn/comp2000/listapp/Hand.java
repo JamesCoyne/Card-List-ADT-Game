@@ -11,14 +11,6 @@ package du.wit.dcsn.comp2000.listapp;
 
 public class Hand extends Pile {
 
-	Hand() {
-
-	}
-
-	public enum SORTING_TYPE {
-		COLOR, VALUE
-	}
-
 	public String toString() {
 		return "";
 	}
@@ -33,9 +25,5 @@ public class Hand extends Pile {
 
 	public Card playCard(int index) {
 		return cards.remove(index);
-	}
-
-	public void sort(SORTING_TYPE type) {
-
 	}
 }
